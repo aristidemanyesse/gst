@@ -1,0 +1,58 @@
+{% load static %}
+
+<!-- Start Top Header -->
+<div class="fables-forth-background-color fables-top-header-signin">
+    <div class="container">
+        <div class="row" id="top-row">
+            <div class="col-12 col-sm-2 col-lg-5">
+                             
+            </div>
+            <div class="col-12 col-sm-5 col-lg-4 text-right">
+                <p class="fables-third-text-color font-13"><span class="fables-iconphone"></span> Téléphone :  (+225) 27 215 438 05 / 27 215 425 45</p>
+            </div>
+            <div class="col-12 col-sm-5 col-lg-3 text-right">
+                <p class="fables-third-text-color font-13"><span class="fables-iconemail"></span> Email: info@gstechnologie.com</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+ 
+<!-- /End Top Header -->
+
+
+<div class="fables-navigation fables-main-background-color py-3 py-lg-0">
+    <div class="container">
+           <div class="row">
+               <div class="col-12 col-md-10 pr-md-0">                       
+                   <nav class="navbar navbar-expand-md btco-hover-menu py-lg-2">
+
+                        <a class="navbar-brand fables-logo-brand pl-0" href="{% url 'mainApp:main' %}"><img style="height: 40px" src="{% static 'images/logo1.png' %}" alt="Fables Template" class="fables-logo"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fablesNavDropdown" aria-controls="fablesNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fables-iconmenu-icon text-white font-16"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="fablesNavDropdown"> 
+
+                            <ul class="navbar-nav mx-auto fables-nav">   
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="{% url "mainApp:main" %}" id="sub-nav1" >Acceuil</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{% url "mainApp:services" %}" >
+                                        Notre expertise
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{% url "mainApp:contacts" %}" aria-haspopup="true" aria-expanded="false">
+                                        Contactez-nous
+                                    </a> 
+                                </li>
+                                
+                            </ul> 
+
+                </div>
+            </nav>
+               </div>
+           </div>
+    </div>
+</div>
