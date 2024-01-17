@@ -1,0 +1,148 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block "title" %}#GST - Contactez-nous{% endblock "title" %}
+
+{% block "body" %}
+
+<!-- Start Header -->
+<div class="fables-header fables-after-overlay">
+    <div class="container"> 
+      <h2 class="fables-page-title fables-second-border-color"><span class="fables-second-text-color">#GST</span> Administration</h2>
+    </div>
+</div>  
+<!-- /End Header -->
+     
+
+     
+<!-- Start page content --> 
+
+    <div class="container"> 
+           
+        <div class="row mt-0 mb-4 my-md-3 overflow-hidden"> 
+           <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <h1 class="font-weight-bold fables-main-text-color display-3 text-center title">Liste des employés !</h1> 
+                <p class="fables-contact-text fables-forth-text-color text-center">Espace d'administration </p>
+                <br>
+                <div class="text-center">
+                    <button class="btn fables-second-background-color 
+                     text-white fables-btn-rounded px-7 py-2 font-20" data-toggle="modal" data-target="#modal-user"><i class="fa fa-plus"></i> Ajouter un nouveau employé</button>
+                </div>
+           </div>  
+                  
+        </div><br><br>    
+        <div class="row g-5 text-left">
+            <div class="bg-light mb-5 p-5 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Code</th>
+                            <th>Nom & prénoms</th>
+                            <th>Poste</th>
+                            <th colspan="3" style="width: 20px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for employe in employes %}
+                            <tr>
+                                <td><img src="{{employe.photo.url}}" alt="{{employe.nom}} {{employe.prenom}}" style="width:40px; height:40px"></td>
+                                <td> {{employe.code}}</td>
+                                <td>{{employe.nom}} {{employe.prenoms}}</td>
+                                <td> {{employe.fonction}}</td>
+                                <td><button data-toggle="modal" data-target="#modal-user-{{employe.id}}" class="btn  me-2"><i class="fa fa-edit"></i></button></td>
+                                <td><button onclick="delete_with_password('EmployeForm', '{{employe.id}}')" class="btn  me-2 supprimer"><i class="fa fa-trash"></i></button></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div><br><br>
+    </div> 
+<!-- /End page content -->
+
+
+<div class="modal fade" id="modal-user" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Nouvel employé</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" class="fables-contact-form formShamman" classname="EmployeForm">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control p-3 fables-rounded" required name="nom" placeholder="Nom">   
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control p-3 fables-rounded" required name="prenoms" placeholder="Prénoms">  
+                        </div> 
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-9">
+                            <input type="text" class="form-control p-3 fables-rounded" required name="fonction" placeholder="Fonction ou poste"> 
+                        </div> 
+                        <div class="col-md-3 form-group">
+                            <img style="height: 100px; width: 100%; margin-bottom: 10px" src="{{activite.image5.url}}" class="img-thumbnail logo">
+                             <input class="hide" type="file" name="photo">
+                             <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> Ajouter image</button>
+                         </div>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Ajouter l'employé</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% for employe in employes %}
+    <div class="modal fade" id="modal-user-{{employe.id}}" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" >Modification employé</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="POST" class="fables-contact-form formShamman" classname="EmployeForm">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control p-3 fables-rounded" value="{{employe.nom}}" required name="nom" placeholder="Nom">   
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control p-3 fables-rounded" value="{{employe.prenoms}}" required name="prenoms" placeholder="Prénoms">  
+                            </div> 
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-9">
+                                <input type="text" class="form-control p-3 fables-rounded" value="{{employe.fonction}}" required name="fonction" placeholder="Fonction ou poste"> 
+                            </div> 
+                            <div class="col-md-3 form-group">
+                                <img style="height: 100px; width: 100%; margin-bottom: 10px" src="{{employe.photo.url}}" class="img-thumbnail logo">
+                                <input class="hide" type="file" name="photo">
+                                <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> Ajouter image</button>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="id" value="{{employe.id}}">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Valider le changement</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock "body" %}

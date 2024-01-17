@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    "mainApp"
+    "mainApp",
+    "coreApp",
 ]
 
 MIDDLEWARE = [
@@ -77,10 +78,19 @@ WSGI_APPLICATION = 'settings.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+    
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE'    : 'django.contrib.gis.db.backends.mysql',
+        'HOST'      : os.getenv("DB_HOST", "0.0.0.0"),
+        'PORT'      : os.getenv("DB_PORT", 3306),
+        'USER'      : os.getenv("DB_USER", "root"),
+        'PASSWORD'  : os.getenv("DB_PASSWORD", "12345678"),
+        'NAME'      : os.getenv("DB_NAME", "gst"),
+    },
 }
 
 

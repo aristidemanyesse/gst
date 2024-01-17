@@ -1,0 +1,56 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block "title" %}#GST - Contactez-nous{% endblock "title" %}
+
+{% block "body" %}
+
+<!-- Start Header -->
+<div class="fables-header fables-after-overlay">
+    <div class="container"> 
+      <h2 class="fables-page-title fables-second-border-color"><span class="fables-second-text-color">#GST</span> Administration</h2>
+    </div>
+</div>  
+<!-- /End Header -->
+     
+
+     
+<!-- Start page content --> 
+
+    <div class="container"> 
+           
+        <div class="row mt-0 mb-4 my-md-3 overflow-hidden"> 
+           <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <h1 class="font-weight-bold fables-main-text-color display-3 text-center title">Connectez-vous !</h1> 
+                <p class="fables-contact-text fables-forth-text-color text-center">Espace d'administration </p>
+           </div>  
+                  
+        </div><br><br>    
+        <div class="row">
+            <div class="col-2 "></div>
+            <div class="col-8 wow fadeInLeft">
+                <form class="fables-contact-form" method="POST" action="{% url 'mainApp:connexion' %}">
+                    {% csrf_token %}
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <input type="text" class="form-control p-3 fables-rounded" name="username"  placeholder="username">   
+                      </div>
+                      <div class="form-group col-md-6">
+                          <input type="password" class="form-control p-3 fables-rounded" name="password"  placeholder="mot de passe">  
+                      </div> 
+                  </div>
+                  <p class="text-center text-danger">{{erreur}}</p><br>
+                  <div class="form-row">
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn fables-second-background-color 
+                         text-white fables-btn-rounded px-7 py-2 font-20"><i class="fa fa-lock"></i> Connexion</button>
+                    </div>
+                  </div>
+                </form>                  
+            </div>
+            
+        </div> <br><br>
+    </div> 
+<!-- /End page content -->
+
+{% endblock "body" %}

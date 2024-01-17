@@ -6,6 +6,11 @@ name = "pypi"
 [packages]
 django = "*"
 django-annoying = "*"
+mysqlclient = "==2.1.1"
+pillow = "*"
+python-dateutil = "*"
+install = "*"
+qrcode = "*"
 
 [dev-packages]
 

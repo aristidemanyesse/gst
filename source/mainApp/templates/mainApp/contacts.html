@@ -1,14 +1,14 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
-{% block "title" %}#FAP2023 - Contactez-nous{% endblock "title" %}
+{% block "title" %}#GST - Contactez-nous{% endblock "title" %}
 
 {% block "body" %}
 
 <!-- Start Header -->
 <div class="fables-header fables-after-overlay">
     <div class="container"> 
-      <h2 class="fables-page-title fables-second-border-color"><span class="fables-second-text-color">#FAP2023</span> Contactez-nous</h2>
+      <h2 class="fables-page-title fables-second-border-color"><span class="fables-second-text-color">#GST</span> Contactez-nous</h2>
     </div>
 </div>  
 <!-- /End Header -->
@@ -57,34 +57,35 @@
         </div><br><br>    
         <div class="row">
             <div class="col-12 wow fadeInLeft">
-                <form class="fables-contact-form">
-                  <div class="form-row">
-                      <div class="form-group col-md-6">
-                          <input type="text" class="form-control p-3 fables-rounded"  placeholder="Nom">   
-                      </div>
-                      <div class="form-group col-md-6">
-                          <input type="text" class="form-control p-3 fables-rounded"  placeholder="Prénoms">  
-                      </div> 
-                  </div>
-                  <div class="form-row">
-                      <div class="form-group col-md-6">
-                          <input type="email" class="form-control p-3 fables-rounded" placeholder="Adresse email"> 
-                      </div>
-                      <div class="form-group col-md-6">
-                          <input type="text" class="form-control p-3 fables-rounded" placeholder="Object"> 
-                      </div> 
-                  </div> 
-                  <div class="form-row"> 
-                       <div class="form-group col-md-12">
-                           <textarea class="form-control p-3 fables-rounded" placeholder="Ecrivez votre message ici" rows="4"></textarea>
-                      </div> 
-                  </div>
-                  <div class="form-row">
-                    <div class="col-md-12 text-center">
-                        <button type="submit" class="btn fables-second-background-color 
-                         text-white fables-btn-rounded px-7 py-2 font-20">Envoyer le message</button>
+                <form  class="fables-contact-form formShamman" classname="NewletterForm">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control p-3 fables-rounded" name="nom"  placeholder="Nom">   
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control p-3 fables-rounded" name="prenoms"  placeholder="Prénoms">  
+                        </div> 
                     </div>
-                  </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="email" class="form-control p-3 fables-rounded" name="email" placeholder="Adresse email"> 
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control p-3 fables-rounded" name="subject" placeholder="Object"> 
+                        </div> 
+                    </div> 
+                    <div class="form-row"> 
+                        <div class="form-group col-md-12">
+                            <textarea class="form-control p-3 fables-rounded" name="message" placeholder="Ecrivez votre message ici" rows="4"></textarea>
+                        </div> 
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn fables-second-background-color 
+                            text-white fables-btn-rounded px-7 py-2 font-20">Envoyer le message</button>
+                        </div>
+                    </div>
                 </form>                  
             </div>
             
