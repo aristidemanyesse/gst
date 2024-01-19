@@ -29,6 +29,9 @@ class Employe(BaseModel):
     created_at    = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
 
+    def __str__(self):
+        return self.nom + '_' + self.prenoms
+
 
 
 
@@ -38,9 +41,10 @@ def _(sender, instance, **kwargs):
     if instance._state.adding:
         instance.code = str(uuid.uuid4()).split('-')[-1].upper()
 
-@receiver(post_save, sender=Employe)
-def _(sender, instance, created, **kwargs):
-    if created:
-        img = qrcode.make(f"https://www.gstechnologie.com/admin/user/{instance.id}/")
-        instance.qrcode = os.path.join(MEDIA_ROOT, f"images/qrcodes/{instance.id}.png")
-        img.save(f"media/images/qrcodes/{instance.id}.png")
+
+# @receiver(post_save, sender=Employe)
+# def _(sender, instance, created, **kwargs):
+#     if created:
+#         img = qrcode.make(f"https://www.gstechnologie.com/admin/user/{instance.id}/")
+#         instance.qrcode = os.path.join(MEDIA_ROOT, f"images/qrcodes/{instance.id}.png")
+#         img.save(f"media/images/qrcodes/{instance.id}.png")

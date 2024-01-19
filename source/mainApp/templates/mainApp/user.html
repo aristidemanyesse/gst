@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block "title" %}#GST - Contactez-nous{% endblock "title" %}
+
+{% block "body" %}
+
+<!-- Start Header -->
+<div class="fables-header fables-after-overlay">
+    <div class="container"> 
+      <h2 class="fables-page-title fables-second-border-color"><span class="fables-second-text-color">#GST</span> Bagde - Vérification</h2>
+    </div>
+</div>  
+<!-- /End Header -->
+     
+
+     
+<!-- Start page content --> 
+
+    <div class="container"> 
+        <br><br>  
+        <div class="row mt-0 mb-4 my-md-3 overflow-hidden"> 
+           <div class="col-12 col-sm-6 col-md-4 ">
+                <img class="img-thumbnail" src="{{employe.photo.url}}" alt="{{employe.nom}} {{employe.prenoms}}" style="width: auto">
+           </div> 
+
+           <div class="col-12 col-sm-6 col-md-8 ">
+               <h3 class="fables-main-text-color title">{{employe.code}}</h3> <br>
+                <h1 class="font-weight-bold fables-main-text-color display-4 title">{{employe.nom}} {{employe.prenoms}}</h1> 
+                <h2 class="fables-main-text-color title">{{employe.fonction}}</h2> 
+                <h4 class="fables-main-text-color title">{{employe.contact}}</h4> 
+                <br>
+                <h5 class=" fables-main-text-color title"><i class="fa fa-phone"></i> +225 07 091 776 31</h5> 
+                <br>
+                <h5 class="fables-main-text-color title"><i class="fa fa-envelope"></i> info@gstechnologie.com </h5> 
+               
+                <br>
+                <p class="fables-contact-text fables-forth-text-color">Il fait bien partir de notre équipe ! </p>
+            </div>  
+                  
+        </div><br><br>    
+    
+    </div> 
+<!-- /End page content -->
+
+{% endblock "body" %}

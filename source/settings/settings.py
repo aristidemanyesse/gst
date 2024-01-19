@@ -27,6 +27,17 @@ SECRET_KEY = 'django-insecure--9m*yx9vtu0f*z$o^9jsfrgar4!@env_jm+lam@eber=8zd&&^
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://www.gstechnologie.com",
+    "https://gstechnologie.com",
+    "http://0.0.0.0:8000",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "www.gstechnologie.com",
+    "gstechnologie.com",
+    "0.0.0.0:8000",
+]
 
 
 # Application definition
@@ -85,10 +96,10 @@ DATABASES = {
     
     'default': {
         'ENGINE'    : 'django.contrib.gis.db.backends.mysql',
-        'HOST'      : os.getenv("DB_HOST", "0.0.0.0"),
+        'HOST'      : os.getenv("DB_HOST", "207.180.249.48"),
         'PORT'      : os.getenv("DB_PORT", 3306),
         'USER'      : os.getenv("DB_USER", "root"),
-        'PASSWORD'  : os.getenv("DB_PASSWORD", "12345678"),
+        'PASSWORD'  : os.getenv("DB_PASSWORD", "1sd48ds5ds45"),
         'NAME'      : os.getenv("DB_NAME", "gst"),
     },
 }
@@ -116,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
 

@@ -66,3 +66,17 @@ def liste(request):
             "employes": employes
         }
         return ctx
+    
+    
+@render_to('mainApp/user.html')
+def user(request, code):
+    if request.method == "GET":
+        employe = Employe.objects.filter(deleted = False, code = code).first()
+        if employe is not None:
+            ctx = {
+                "employe": employe
+            }
+            return ctx
+
+        else:
+            return redirect("mainApp:main")

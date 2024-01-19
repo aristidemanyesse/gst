@@ -11,6 +11,8 @@ pillow = "*"
 python-dateutil = "*"
 install = "*"
 qrcode = "*"
+tzdata = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

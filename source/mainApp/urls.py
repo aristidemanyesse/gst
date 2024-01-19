@@ -13,4 +13,5 @@ urlpatterns = [
     path('admin/connexion/', views.connexion, name='connexion'),
     
     path('admin/liste/', views.liste, name='liste'),
+    path('admin/user/<str:code>/', views.user, name='user'),
 ]

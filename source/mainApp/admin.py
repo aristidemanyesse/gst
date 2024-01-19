@@ -10,7 +10,8 @@ class EmployeAdmin(admin.ModelAdmin):
     list_filter = (
         ('created_at', DateFieldListFilter),
     )
-    list_display = ["nom", "prenoms", "code", "deleted", 'created_at']
+    list_display = ["id", "nom", "prenoms", "code", "deleted", 'created_at']
+    list_editable = ["nom", "prenoms", "code"]
 
 
 

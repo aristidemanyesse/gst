@@ -46,12 +46,12 @@
                     <tbody>
                         {% for employe in employes %}
                             <tr>
-                                <td><img src="{{employe.photo.url}}" alt="{{employe.nom}} {{employe.prenom}}" style="width:40px; height:40px"></td>
+                                <td><img src="{{employe.photo.url}}" alt="{{employe.nom}} {{employe.prenoms}}" style="width:40px; height:40px"></td>
                                 <td> {{employe.code}}</td>
                                 <td>{{employe.nom}} {{employe.prenoms}}</td>
                                 <td> {{employe.fonction}}</td>
                                 <td><button data-toggle="modal" data-target="#modal-user-{{employe.id}}" class="btn  me-2"><i class="fa fa-edit"></i></button></td>
-                                <td><button onclick="delete_with_password('EmployeForm', '{{employe.id}}')" class="btn  me-2 supprimer"><i class="fa fa-trash"></i></button></td>
+                                <td><button onclick="delete_password('EmployeForm', '{{employe.id}}')" class="btn  me-2 supprimer"><i class="fa fa-trash"></i></button></td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -87,7 +87,7 @@
                             <input type="text" class="form-control p-3 fables-rounded" required name="fonction" placeholder="Fonction ou poste"> 
                         </div> 
                         <div class="col-md-3 form-group">
-                            <img style="height: 100px; width: 100%; margin-bottom: 10px" src="{{activite.image5.url}}" class="img-thumbnail logo">
+                            <img style="height: 100px; width: 100%; margin-bottom: 10px" src="" class="img-thumbnail logo">
                              <input class="hide" type="file" name="photo">
                              <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> Ajouter image</button>
                          </div>
@@ -145,4 +145,5 @@
         </div>
     </div>
 {% endfor %}
+
 {% endblock "body" %}
